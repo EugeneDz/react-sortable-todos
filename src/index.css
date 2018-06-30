@@ -26,10 +26,12 @@ body #root {
 }
 
 body header {
+  position: relative;
   margin-bottom: 20px;
 }
 
 body main {
+  position: relative;
   margin-bottom: auto;
 }
 
