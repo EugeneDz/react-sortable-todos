@@ -5,6 +5,7 @@ import Hero from '../components/Hero';
 import Footer from '../components/Footer';
 
 import AddTodo from '../components/AddTodo';
+import Todos from '../components/Todos';
 
 import todos from './assets/todos.json';
 import './Main.css';
@@ -20,9 +21,30 @@ class Main extends Component {
 
   componentDidMount = () => this.setState({ todos });
 
-  handleOnAddTodo = todo => this.setState({ todos: [...todos, todo] });
+  handleOnAddTodo = todo => {
+    const { todos } = this.state;
+    this.setState({ todos: [...todos, todo] });
+  }
+
+  handleOnDoneTodo = id => {
+    const { todos } = this.state;
+    const index = todos.findIndex(todo => todo.id === id);
+    todos[index].isDone = true;
+
+    this.setState({ todos: [...todos] });
+  }
+
+  handleOnDeleteTodo = id => {
+    const { todos } = this.state;
+    const index = todos.findIndex(todo => todo.id === id);
+    todos.splice(index, 1);
+
+    this.setState({ todos: [...todos] });
+  }
 
   render() {
+    const { todos } = this.state;
+
     return (
       <Fragment>
         <header>
@@ -30,21 +52,40 @@ class Main extends Component {
             <Navbar /> 
           </Container>
         </header>
-        <main className="main">
+        <section>
           <Container>
             <Row>
               <Col xs={12}>
                 <Hero />
               </Col>
             </Row>
-            <Row>
-              <Col xs={12}>
-                <AddTodo
-                  onAddTodo={this.handleOnAddTodo}
-                />
-              </Col>
-            </Row>
           </Container>
+        </section> 
+        <main className="container main">
+          <aside>
+            <Container>
+              <Row>
+                <Col xs={12}>
+                  <AddTodo
+                    onAddTodo={this.handleOnAddTodo}
+                  />
+                </Col>
+              </Row>
+            </Container>
+          </aside>
+          <section className="todo-list">
+            <Container>
+              <Row>
+                <Col xs={12}>
+                  <Todos
+                    todos={todos}
+                    onDone={this.handleOnDoneTodo}
+                    onDelete={this.handleOnDeleteTodo}
+                  />
+                </Col>
+              </Row>
+            </Container>
+          </section>
         </main>
         <footer>
           <Container>

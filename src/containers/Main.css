@@ -1,0 +1,8 @@
+aside {
+  position: relative;
+  width: calc(100% / 3);
+}
+
+.todo-list {
+  width: 100%;
+}
