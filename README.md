@@ -1,3 +1,7 @@
+## Live Preview
+
+[Open App](https://eugenedz.github.io/react-sortable-todos/)
+
 ## Available Scripts
 
 In the project directory, you can run:
