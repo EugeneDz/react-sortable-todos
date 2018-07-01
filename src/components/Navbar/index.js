@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {
+  Container,
   Collapse,
   Navbar as ReactstrapNavbar,
   NavbarToggler,
@@ -27,17 +28,24 @@ class Navbar extends Component {
   render() {
     return (
       <ReactstrapNavbar color="dark" dark expand="md">
-        <NavbarBrand href="/">Todo's</NavbarBrand>
-        <NavbarToggler onClick={this.toggle} />
-        <Collapse isOpen={this.state.isOpen} navbar>
-          <Nav className="ml-auto" navbar>
-            <NavItem>
-              <NavLink href={links.profile.link} target="_blunk">
-                {links.profile.title}
-              </NavLink>
-            </NavItem>
-          </Nav>
-        </Collapse>
+        <Container>
+          <NavbarBrand href="/">Todo's</NavbarBrand>
+          <NavbarToggler onClick={this.toggle} />
+          <Collapse isOpen={this.state.isOpen} navbar>
+            <Nav className="ml-auto" navbar>
+              <NavItem>
+                <NavLink href={links.profile.link} target="_blunk">
+                  {links.profile.title}
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href={links.source.link} target="_blunk">
+                  {links.source.title}
+                </NavLink>
+              </NavItem>
+            </Nav>
+          </Collapse>
+        </Container>
       </ReactstrapNavbar>
     );
   }

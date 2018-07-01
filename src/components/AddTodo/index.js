@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Form, FormGroup, Input } from 'reactstrap';
+import { Button, Form, InputGroup, InputGroupAddon, Input } from 'reactstrap';
 import { Icon } from 'react-icons-kit';
 import { plus } from 'react-icons-kit/fa/plus';
 
@@ -29,8 +29,8 @@ class AddTodo extends Component {
     const { todo } = this.state;
 
     return (
-      <Form inline onSubmit={this.handleOnSubmit}>
-        <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
+      <Form onSubmit={this.handleOnSubmit}>
+        <InputGroup size="lg">
           <Input
             type="text"
             name="text"
@@ -38,16 +38,14 @@ class AddTodo extends Component {
             value={todo}
             onChange={this.handleOnChange}
           />
-        </FormGroup>
-        <Button
-          outline color="primary"
-        >
-          <span>
-            <Icon icon={plus} />
-            {' '}
-            Add Todo
-          </span>
-        </Button>
+          <InputGroupAddon addonType="append">
+            <Button color="primary">
+              <span>
+                <Icon icon={plus} /> {' '} Add Todo
+              </span>
+            </Button>
+          </InputGroupAddon>
+        </InputGroup>
       </Form>
     )
   }

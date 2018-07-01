@@ -1,15 +1,14 @@
 import React, { Component, Fragment } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import { arrayMove } from 'react-sortable-hoc';
-import Navbar from '../components/Navbar';
-import Hero from '../components/Hero';
-import Footer from '../components/Footer';
+import Navbar from '../../components/Navbar';
+import Hero from '../../components/Hero';
 
-import AddTodo from '../components/AddTodo';
-import Todos from '../components/Todos';
+import AddTodo from '../../components/AddTodo';
+import Todos from '../../components/Todos';
 
-import todos from '../store/todos.json';
-import './Main.css';
+import todos from '../../store/todos.json';
+import './style.css';
 
 class Main extends Component {
   constructor(props) {
@@ -55,21 +54,13 @@ class Main extends Component {
     return (
       <Fragment>
         <header>
-          <Container>
-            <Navbar /> 
-          </Container>
+          <Navbar /> 
         </header>
         <section>
-          <Container>
-            <Row>
-              <Col xs={12}>
-                <Hero />
-              </Col>
-            </Row>
-          </Container>
+          <Hero />
         </section> 
         <main className="container main">
-          <aside>
+          <section>
             <Container>
               <Row>
                 <Col xs={12}>
@@ -79,7 +70,8 @@ class Main extends Component {
                 </Col>
               </Row>
             </Container>
-          </aside>
+          </section>
+          <br />
           <section className="todo-list">
             <Container>
               <Row>
@@ -96,15 +88,6 @@ class Main extends Component {
             </Container>
           </section>
         </main>
-        <footer>
-          <Container>
-            <Row>
-              <Col xs={12}>
-                <Footer />
-              </Col>
-            </Row>
-          </Container>
-        </footer>
       </Fragment>
     );
   };

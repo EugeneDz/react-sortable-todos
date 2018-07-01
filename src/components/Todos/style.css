@@ -1,0 +1,29 @@
+.list-group .list-group-item,
+body .list-group-item {
+  display: flex;
+  width: 100%;
+  position: relative;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.list-group .list-group-item .todo-name,
+body .list-group-item span {
+  text-decoration: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-right: auto;
+  padding-left: 10px;
+}
+
+.list-group .list-group-item .drag-handle:hover {
+  cursor: move;
+}
+
+.list-group .list-group-item .btn-group .btn span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+}
