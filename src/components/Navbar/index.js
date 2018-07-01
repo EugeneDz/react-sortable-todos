@@ -9,6 +9,8 @@ import {
   NavLink,
 } from 'reactstrap';
 
+import links from '../../config/links';
+
 class Navbar extends Component {
   constructor(props) {
     super(props);
@@ -30,7 +32,9 @@ class Navbar extends Component {
         <Collapse isOpen={this.state.isOpen} navbar>
           <Nav className="ml-auto" navbar>
             <NavItem>
-              <NavLink href="https://github.com/EugeneDz">GitHub</NavLink>
+              <NavLink href={links.profile.link} target="_blunk">
+                {links.profile.title}
+              </NavLink>
             </NavItem>
           </Nav>
         </Collapse>
