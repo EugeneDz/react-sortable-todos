@@ -3,10 +3,10 @@ import { Button, ButtonGroup, ListGroup, ListGroupItem } from 'reactstrap';
 import { SortableContainer, SortableElement } from 'react-sortable-hoc';
 
 const SortableItem = SortableElement(({ todo: { id, todo, isDone }, onDelete, onDone }) =>
-  <ListGroupItem
-    className={isDone ? 'is-done' : ''}
-  >
-    {todo}
+  <ListGroupItem> 
+    <span style={{ textDecoration: isDone ? 'line-through' : 'none' }}>
+      {todo}
+    </span>
     {' '}
     <ButtonGroup>
       <Button

@@ -30,9 +30,9 @@ class Main extends Component {
   handleOnDoneTodo = id => {
     const { todos } = this.state;
     const index = todos.findIndex(todo => todo.id === id);
-    todos[index].isDone = true;
+    todos[index].isDone = !todos[index].isDone;
 
-    this.setState({ todos: [...todos] });
+    this.setState({ todos });
   }
 
   handleOnDeleteTodo = id => {
@@ -40,7 +40,7 @@ class Main extends Component {
     const index = todos.findIndex(todo => todo.id === id);
     todos.splice(index, 1);
 
-    this.setState({ todos: [...todos] });
+    this.setState({ todos });
   }
 
   handleOnSortEnd = ({oldIndex, newIndex}) => {
