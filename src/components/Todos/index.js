@@ -1,29 +1,39 @@
 import React from 'react';
 import { Button, ButtonGroup, ListGroup, ListGroupItem } from 'reactstrap';
+import { SortableContainer, SortableElement } from 'react-sortable-hoc';
 
-const Todos = ({ todos, onDelete, onDone }) => (
-  <ListGroup>
-    {todos.map(({ id, todo, isDone }) => (
-      <ListGroupItem
-        className={isDone ? 'is-done' : ''}
-        key={id}
+const SortableItem = SortableElement(({ todo: { id, todo, isDone }, onDelete, onDone }) =>
+  <ListGroupItem
+    className={isDone ? 'is-done' : ''}
+  >
+    {todo}
+    {' '}
+    <ButtonGroup>
+      <Button
+        onClick={() => onDone(id)}
       >
-        {todo}
-        {' '}
-        <ButtonGroup>
-          <Button
-            onClick={() => onDone(id)}
-          >
-            Done
-          </Button>
-          <Button
-            onClick={() => onDelete(id)}
-          >
-            Delete
-          </Button>
-        </ButtonGroup>
-      </ListGroupItem>
-    ))}
+        Done
+      </Button>
+      <Button
+        onClick={() => onDelete(id)}
+      >
+        Delete
+      </Button>
+    </ButtonGroup>
+  </ListGroupItem>
+);
+
+const Todos = SortableContainer(({ todos, onDelete, onDone }) => 
+  <ListGroup>
+    {todos.map((todo, index) => 
+      <SortableItem
+        key={`item-${index}`}
+        index={index}
+        todo={todo}
+        onDelete={onDelete}
+        onDone={onDone}
+      />
+    )}
   </ListGroup>
 );
 

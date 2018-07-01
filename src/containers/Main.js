@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { Container, Row, Col } from 'reactstrap';
+import { arrayMove } from 'react-sortable-hoc';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import Footer from '../components/Footer';
@@ -42,6 +43,12 @@ class Main extends Component {
     this.setState({ todos: [...todos] });
   }
 
+  handleOnSortEnd = ({oldIndex, newIndex}) => {
+    this.setState({
+      todos: arrayMove(this.state.todos, oldIndex, newIndex),
+    });
+  };
+
   render() {
     const { todos } = this.state;
 
@@ -81,6 +88,7 @@ class Main extends Component {
                     todos={todos}
                     onDone={this.handleOnDoneTodo}
                     onDelete={this.handleOnDeleteTodo}
+                    onSortEnd={this.handleOnSortEnd}
                   />
                 </Col>
               </Row>
