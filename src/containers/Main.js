@@ -8,7 +8,7 @@ import Footer from '../components/Footer';
 import AddTodo from '../components/AddTodo';
 import Todos from '../components/Todos';
 
-import todos from './assets/todos.json';
+import todos from '../store/todos.json';
 import './Main.css';
 
 class Main extends Component {
