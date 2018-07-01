@@ -89,6 +89,7 @@ class Main extends Component {
                     onDone={this.handleOnDoneTodo}
                     onDelete={this.handleOnDeleteTodo}
                     onSortEnd={this.handleOnSortEnd}
+                    useDragHandle
                   />
                 </Col>
               </Row>

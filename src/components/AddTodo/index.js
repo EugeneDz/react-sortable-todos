@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Form, FormGroup, Input } from 'reactstrap';
+import { Icon } from 'react-icons-kit';
+import { plus } from 'react-icons-kit/fa/plus';
 
 class AddTodo extends Component {
   constructor(props) {
@@ -37,7 +39,15 @@ class AddTodo extends Component {
             onChange={this.handleOnChange}
           />
         </FormGroup>
-        <Button>Add Todo</Button>
+        <Button
+          outline color="primary"
+        >
+          <span>
+            <Icon icon={plus} />
+            {' '}
+            Add Todo
+          </span>
+        </Button>
       </Form>
     )
   }

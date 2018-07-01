@@ -1,23 +1,41 @@
 import React from 'react';
 import { Button, ButtonGroup, ListGroup, ListGroupItem } from 'reactstrap';
-import { SortableContainer, SortableElement } from 'react-sortable-hoc';
+import { SortableContainer, SortableElement, SortableHandle } from 'react-sortable-hoc';
+import { Icon } from 'react-icons-kit';
+import { archive } from 'react-icons-kit/fa/archive';
+import { check } from 'react-icons-kit/fa/check';
+import { bars } from 'react-icons-kit/fa/bars';
+
+
+const DragHandle = SortableHandle(() => <Icon icon={bars} />); 
 
 const SortableItem = SortableElement(({ todo: { id, todo, isDone }, onDelete, onDone }) =>
-  <ListGroupItem> 
+  <ListGroupItem>
+    <DragHandle />
+    {' '}
     <span style={{ textDecoration: isDone ? 'line-through' : 'none' }}>
       {todo}
     </span>
-    {' '}
     <ButtonGroup>
       <Button
+        outline color="primary" size="sm"
         onClick={() => onDone(id)}
       >
-        Done
+        <span>
+          <Icon icon={check} />
+          {' '}
+          Done
+        </span>
       </Button>
       <Button
+        outline color="primary" size="sm"
         onClick={() => onDelete(id)}
       >
-        Delete
+        <span>
+          <Icon icon={archive} />
+          {' '}
+          Delete
+        </span>
       </Button>
     </ButtonGroup>
   </ListGroupItem>

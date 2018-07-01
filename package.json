@@ -6,6 +6,7 @@
     "bootstrap": "4.1.1",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
+    "react-icons-kit": "1.1.5",
     "react-scripts": "1.1.4",
     "react-sortable-hoc": "0.8.3",
     "reactstrap": "6.2.0"
